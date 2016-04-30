@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'tiddle'
+gem 'acts_as_follower'
 
 group :development, :test do
   gem 'byebug'
