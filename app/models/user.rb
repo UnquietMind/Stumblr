@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  
-  
   validates_presence_of :username
   validates_uniqueness_of :username
   
@@ -10,6 +8,7 @@ class User < ActiveRecord::Base
          
   has_many :authentication_tokens
   has_many :posts, :dependent => :destroy
+  has_many :comments, :through => :posts
   
   # Follow gem
   acts_as_followable
