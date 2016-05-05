@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
          :token_authenticatable
          
   has_many :authentication_tokens
-  
+  has_many :posts, :dependent => :destroy
   
   # Follow gem
   acts_as_followable
