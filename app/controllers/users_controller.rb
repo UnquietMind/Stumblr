@@ -65,7 +65,22 @@ class UsersController < ApplicationController
         else  
             render json: @user.errors, status: :unprocessable_entity  
         end  
-    end  
+    end
+    
+    # Return all the posts from all users followed and own posts. 
+    def followed_users_posts
+	    users = self.all_following
+		my_posts = Array.new
+		users.each do |u|
+		    u.posts.each do |p|
+                my_posts.push(p)
+            end
+	    end
+        self.posts.each do |p|
+            my_posts.push(p)
+        end
+		return my_posts
+    end
 
 
     private  
